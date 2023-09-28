@@ -22,7 +22,7 @@ const handleSearch = async ()=>{
             return;
         }
         setLoad(true);
-        const urlByPinCode = `http://api.openweathermap.org/geo/1.0/zip?zip=${inputField.current.value},IN&appid=${apiKey}`;
+        const urlByPinCode = `https://api.openweathermap.org/geo/1.0/zip?zip=${inputField.current.value},IN&appid=${apiKey}`;
         const result = await axios.get(urlByPinCode);
         const url = `https://api.openweathermap.org/data/2.5/weather?lat=${result.data.lat}&lon=${result.data.lon}&appid=${apiKey}`;
         const weatherData = await axios.get(url);

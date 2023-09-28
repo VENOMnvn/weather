@@ -19,7 +19,7 @@ const handleSearch = async ()=>{
             return;
         }
         setLoad(true);
-        const urlByName = `http://api.openweathermap.org/geo/1.0/direct?q=${inputField.current.value}&limit=5&appid=${apiKey}`;
+        const urlByName = `https://api.openweathermap.org/geo/1.0/direct?q=${inputField.current.value}&limit=5&appid=${apiKey}`;
         const result = await axios.get(urlByName);
         console.log("result",result);
         if(result.data.length === 0){
