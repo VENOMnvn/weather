@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import './nav-home.css';
 import { useLocation } from 'react-router-dom';
 
-const Navbar = ()=>{
+const Navbar = (params)=>{
   const location = useLocation();
   const [isPincode,setPincode] = useState(true);
+  const [isMetric,setMetric] = useState(true);
 
   useEffect(()=>{
     if(location.pathname ==='/location'){
@@ -13,10 +14,15 @@ const Navbar = ()=>{
     else{
       setPincode(true);
     }
-
   },[location]);
 
-return <nav id="navbar" className="navbar">
+  const changeUnits = ()=>{
+    setMetric(!isMetric);
+    params.changeMetric(!isMetric);
+  }
+
+return <div>
+<nav id="navbar" className="navbar">
 <span className="material-symbols-outlined"> menu </span>
 
 <a data-scroll="about" href="/" className={isPincode?"active":""}>
@@ -27,6 +33,8 @@ return <nav id="navbar" className="navbar">
   {" "}
   location{" "}
 </a>
+<a className='units' onClick={changeUnits}> {isMetric ?"KM/H - C":"MPH - F"}</a>
 </nav>
+</div>
 }
 export default Navbar;

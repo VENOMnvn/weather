@@ -5,7 +5,8 @@ import WeatherScreen from './WeatherScreen';
 
 const apiKey = "0d7dace9bc88448963f73ee11a0c24be";
 
-const HomeScreenLocation = ()=>{
+const HomeScreenLocation = (params)=>{
+   
 const inputField = useRef();
 const [weather,setWeather] = useState(null);
 const [isError,setError] = useState(false);
@@ -43,9 +44,9 @@ return <div>
  <div className="Modal">
 <div className="modal-title location">Search by location</div>
 <input type="text" className="textinput" placeholder="Enter location" ref={inputField}></input>
-<div className="button" onClick={handleSearch}>  {isLoad?<span class="loader"></span>:"Search"}</div>
+<div className="button" onClick={handleSearch}>  {isLoad?<span className="loader"></span>:"Search"}</div>
 {isError?<div className='error'>{isError}</div>:""}
-</div> </div>: <WeatherScreen data={weather}></WeatherScreen>}
+</div> </div>: <WeatherScreen data={weather} units={params.units}></WeatherScreen>}
 </div>
 }
 export default HomeScreenLocation;

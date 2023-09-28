@@ -91,3 +91,16 @@
     font-size: 2rem;
     margin: 5px 0px;
 }
+.changeCase{
+    animation: blink 500ms;
+    animation-iteration-count: 1;
+    animation-duration: 500ms;
+}
+@keyframes blink{
+    0%{
+        background-color: teal;
+    }
+    100%{
+        background-color: white;
+    }
+}

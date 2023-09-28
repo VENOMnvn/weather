@@ -39,6 +39,19 @@ nav span {
 nav a.active {
   color: #208ba2;
 }
+.units{
+  padding: 10px; 
+  background-color: #208ba2;
+  border: 1px solid #208ba2;
+  border-radius: 5px;
+  color:white;
+}
+.units:hover{
+  padding: 10px;
+  background-color: white;
+  color: #208ba2;
+  cursor: pointer;
+}
 
 .homescreen{
   background: url('./utils/rain.jpg');

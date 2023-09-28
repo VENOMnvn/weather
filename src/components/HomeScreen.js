@@ -8,7 +8,8 @@ const apiKey = "0d7dace9bc88448963f73ee11a0c24be";
 
 // const urlByName = `http://api.openweathermap.org/geo/1.0/direct?q=hbhb&limit=5&appid=${apiKey}`;
 
-const HomeScreen = ()=>{
+const HomeScreen = (params)=>{
+
 const inputField = useRef();
 const [weather,setWeather] = useState(null);
 const [isError,setError] = useState(false);
@@ -43,9 +44,9 @@ return <div>
  <div className="Modal">
 <div className="modal-title">Search by PINCODE</div>
 <input type="text" className="textinput" placeholder="Enter PINCODE" ref={inputField}></input>
-<div className="button" onClick={handleSearch}> {isLoad?<span class="loader"></span>:"Search"}</div>
+<div className="button" onClick={handleSearch}> {isLoad?<span className="loader"></span>:"Search"}</div>
 {isError?<div className='error' style={{color:"red"}}>{isError}</div>:""}
-</div></div>: <WeatherScreen data={weather}></WeatherScreen>}
+</div></div>: <WeatherScreen data={weather} units={params.units}></WeatherScreen>}
 </div>
 }
 export default HomeScreen;
